@@ -1,0 +1,61 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Staff</title>
+</head>
+<body>
+    <div class="container" style="padding-top: 160px;">
+        <form method="post" action="addUser">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <div class="card text-center card  bg-default mb-3">
+                        <div class="card-header">
+                            <h3>Enter User information</h3>
+                        </div>
+                        {{messageSCheckA}}
+                        <div class="card-body">
+                            <div class="col form-group">
+                                <label>Name </label>   
+                                <input required="true" type="text" class="form-control" placeholder="" name="txtNameA" value="{{oldValues.nameA}}">
+                            </div> <!-- form-group end.// -->
+                            <div class="col form-group">
+                                <div class="form-group">
+                                <label>Email address</label>
+                                <input required="true" type="email" class="form-control" placeholder="" name="txtEmailA" value="{{oldValues.emailA}}">
+                                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div> <!-- form-group end.// -->
+                            <span style="color: red ; ">{{errorE}}</span></div>
+                            <div class="form-group">
+                                <label>Create password</label>
+                                <input required="true" class="form-control" type="password" name = "txtPassA" value="{{oldValues.passwordA}}">
+                                <label>Confirm password</label>
+                                <input required="true" class="form-control" type="password" name = "txtConfirmPA">
+                            </div> <!-- form-group end.// -->  
+                            <span style="color: red;">{{errorCon}}</span>
+                            <select id="inputState" class="form-control" name="txtRoleA">
+                                <option value="Admin">Admin</option>
+                                <option value="Staff">Staff</option>
+                            </select>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <input class="btn btn-primary" type="submit" value="Add user">                                          
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

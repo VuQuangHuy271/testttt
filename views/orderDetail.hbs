@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Responsiive AdminProduct </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="oderdetail.css">
+    <!-- Boxicons CDN Link -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="logo_name">Bookstore</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#" class="active">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Product</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Customer</span>
+                </a>
+            </li>
+            <li class="log_out">
+                <a href="#">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Dashboard</span>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <i class='bx bx-search'></i>
+            </div>
+            <div class="profile-details">
+                <img src="https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/272949889_4884881758270187_4223559189825047220_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=z3qEG7zrpGsAX-jCccv&_nc_ht=scontent.fhan3-3.fna&oh=00_AT8ymy9ctiPq51qt50coSf4dh0F4L-0c1hv67T1bXnF6Qw&oe=620BD2CC"
+                    alt="">
+                <span class="admin_name">Quân Lê</span>
+                <i class='bx bx-chevron-down'></i>
+            </div>
+        </nav>
+
+        <div class="home-content">
+            <div class="customer">
+                <img class="customer-img"
+                    src="data:image/jpeg;base64,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"
+                    alt="">
+                <div class="name">Son tung</div>
+            </div>
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2> Customer Order</h2>
+                        </div>
+
+                    </div>
+                </div>
+                <table class="table table-striped table-hover" style="margin-bottom: 125 px;">
+                    <thead>
+                        <tr>
+                            <th>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="selectAll">
+                                    <label for="selectAll"></label>
+                                </span>
+                            </th>
+                            <th>Idoeer</th>
+                            <th>images</th>
+                            <th>Product Name</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                    <label for="checkbox1"></label>
+                                </span>
+                            </td>
+                            <td> 0000000000000001</td>
+                            <td> <img src="" alt=""></td>
+                            <td>Conan tap 1</td>
+                            <td>Pending</td>
+                            <td>Cancel</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                    <label for="checkbox1"></label>
+                                </span>
+                            </td>
+                            <td> 0000000000000001</td>
+                            <td> <img src="" alt=""></td>
+                            <td>Conan tap 2</td>
+                            <td>Pending</td>
+                            <td>Cancel</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                    <label for="checkbox1"></label>
+                                </span>
+                            </td>
+                            <td> 0000000000000001</td>
+                            <td> <img src="" alt=""></td>
+                            <td>Conan tap 3</td>
+                            <td>Pending</td>
+                            <td>Cancel</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clearfix">
+                    <!-- <div class="hint-text">Showing <b>5</b> out of <b>100</b> entries</div> -->
+                    <ul class="pagination">
+                        <!-- <li class="page-item disabled"><a href="#">Previous</a></li>
+                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"><a href="#" class="page-link">5</a></li>
+                <li class="page-item"><a href="#" class="page-link">Next</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function () {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else
+                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+    </script>
+
+</body>
+
+</html>

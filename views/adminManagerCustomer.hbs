@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Main</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css?version=3">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    {{!-- <style type='text/css'>table {
+    counter-reset: rowNumber;
+    }
+    table tr {
+        counter-increment: rowNumber;
+    }
+
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    } --}}
+</style>
+</head>
+<body>
+    <ul class="nav nav-tabs">
+		<li class="nav-item">
+			<a class="nav-link active" href="view">View Product</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link " href="#">View User</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">View Order</a>
+		</li>
+		<li class="nav-item">
+            {{#if admin}}
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {{admin.name}}: {{admin.role}}
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="updateProfileAdmin">Edit Profile</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">Log out</a></li>
+                    </ul>
+                </div>
+            {{/if}}
+        </li>
+	</ul>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+            <div class="container-fluid">        
+                <form class="d-flex ">                       
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 190px" name="txtSearch"> 
+
+                    <button class="btn btn-outline-success" type="submit">Search</button> 
+                                    
+                </form>
+            </div>
+        </nav>   
+    <div class="home-content">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6">
+              <h2>Manage <b>Customer</b></h2>
+            </div>
+            <div class="col-sm-6">
+              <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
+                  class="material-icons">&#xE147;</i>
+                <span>Add New Employee</span></a>
+              <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i
+                  class="material-icons">&#xE15C;</i>
+                <span>Delete</span></a>
+            </div>
+          </div>
+        </div>
+        <table class="table table-striped table-hover" style="margin-bottom: 125 px;">
+          <thead>
+            <tr>
+              <th>
+                <span class="custom-checkbox">
+                  <input type="checkbox" id="selectAll">
+                  <label for="selectAll"></label>
+                </span>
+              </th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="custom-checkbox">
+                  <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                  <label for="checkbox1"></label>
+                </span>
+              </td>
+              <td>Quan Le</td>
+              <td>quanlm@gmail.com</td>
+              <td>89 Đường Láng, Hà Nội</td>
+              <td>0966686371</td>
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="custom-checkbox">
+                  <input type="checkbox" id="checkbox2" name="options[]" value="1">
+                  <label for="checkbox2"></label>
+                </span>
+              </td>
+              <td>Nam Đỗ</td>
+              <td>namdo123@gmail.com</td>
+              <td>57 Cầu Giấy, Hà Nội</td>
+              <td>0966686372</td>
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="custom-checkbox">
+                  <input type="checkbox" id="checkbox3" name="options[]" value="1">
+                  <label for="checkbox3"></label>
+                </span>
+              </td>
+              <td>Nguyễn Kiên</td>
+              <td>kiennguyen123@gmail.com</td>
+              <td>25 Cầu Giấy</td>
+              <td>0966686373</td>
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="custom-checkbox">
+                  <input type="checkbox" id="checkbox4" name="options[]" value="1">
+                  <label for="checkbox4"></label>
+                </span>
+              </td>
+              <td>Chan Toly</td>
+              <td>khmer09@mail.com</td>
+              <td>PP San Sok, 67, Madrid, Pursat</td>
+              <td>0966686374</td>
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="custom-checkbox">
+                  <input type="checkbox" id="checkbox5" name="options[]" value="1">
+                  <label for="checkbox5"></label>
+                </span>
+              </td>
+              <td>Hữu Mạnh </td>
+              <td>huumanh123@gmail.com</td>
+              <td>155 Cầu Giấy</td>
+              <td>0966686375</td>
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="clearfix">
+          <!-- <div class="hint-text">Showing <b>5</b> out of <b>100</b> entries</div> -->
+          <ul class="pagination">
+            <!-- <li class="page-item disabled"><a href="#">Previous</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item active"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">4</a></li>
+            <li class="page-item"><a href="#" class="page-link">5</a></li>
+            <li class="page-item"><a href="#" class="page-link">Next</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function () {
+      sidebar.classList.toggle("active");
+      if (sidebar.classList.contains("active")) {
+        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+      } else
+        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Main</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css?version=3">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    {{!-- <style type='text/css'>table {
+    counter-reset: rowNumber;
+    }
+    table tr {
+        counter-increment: rowNumber;
+    }
+
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    } --}}
+</style>
+</head>
+<body>
+    <ul class="nav nav-tabs">
+		<li class="nav-item">
+			<a class="nav-link active" href="view">View Product</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link " href="adminManagerCustomer">View User</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">View Order</a>
+		</li>
+		<li class="nav-item">
+            {{#if admin}}
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {{admin.name}}: {{admin.role}}
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="updateProfileAdmin">Edit Profile</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">Log out</a></li>
+                    </ul>
+                </div>
+            {{/if}}
+        </li>
+	</ul>
+
+    <h1>View all product</h1>  
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+            <div class="container-fluid">     
+                <div style="text-align: right;"><a href="addBooks" ><button class="btn btn-success" >Add</button></a> </div>     
+                <form class="d-flex ">                       
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 190px" name="txtSearch"> 
+
+                    <button class="btn btn-outline-success" type="submit">Search</button> 
+                                    
+                </form>
+            </div>
+        </nav>    
+    <span style="color: red;">{{messS}}</span>
+    <table class="table table-bordered table-hover" >
+        <tr>
+            <th width='50px'>No</th>
+            <th>Name </th>
+            <th>Price</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th width="150" >Image</th>
+            <th width='80px'>Edit</th>
+            <th width='80px'>Delete</th>
+            
+        </tr>
+        <script language="javascript">
+                var num = 1;
+            </script>
+        {{#each products}}            
+        <tr >
+            
+            <td><script language="javascript">
+                document.write(num++);
+            </script></td>
+            
+            <td> {{name}} </td>
+            <td>{{price}} VND</td>
+            <td> {{author}} </td>
+            <td>{{description}}</td>
+            <td><img src="{{picURL}}" alt="" width="150" height="100"></td>
+            <td><a href="editBooks?id={{_id}}">Edit</a></td>
+            <td><a onclick="ConfirmDelete()" href="/admin/delete?id={{_id}}">Delete </a></td>
+            
+        {{/each}}
+        </tr>
+        {{!-- <span style="color: red;">{{errorDLT}}</span> --}}
+</body>
+{{!-- <script>
+    var mess = {{errorDLT}};
+</script> --}}
+<script>
+    function ConfirmDelete()
+{
+    var x = confirm("Are you sure you want to delete?");
+    if (x)
+        return true;
+    else
+    return false;
+}
+
+</script>
+
+</html>
+
